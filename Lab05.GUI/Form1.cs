@@ -245,6 +245,39 @@ namespace Lab05.GUI
             }
         }
 
-        
+        private bool isTypingVietnameseWord = false;
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Chỉ cho phép nhập chữ và có dấu
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                // Nếu người dùng đang gõ một từ tiếng Việt, cho phép nhập số
+                if (isTypingVietnameseWord && char.IsDigit(e.KeyChar) && char.IsWhiteSpace(e.KeyChar))
+                {
+                    return;
+                }
+
+                e.Handled = true;
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Khi người dùng nhấn một phím chữ, giả định rằng họ đang bắt đầu gõ một từ tiếng Việt
+            if (e.KeyCode >= Keys.A && e.KeyCode <= Keys.Z)
+            {
+                isTypingVietnameseWord = true;
+            }
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            // Khi người dùng thả một phím chữ, giả định rằng họ đã hoàn thành việc gõ một từ tiếng Việt
+            if (e.KeyCode >= Keys.A && e.KeyCode <= Keys.Z)
+            {
+                isTypingVietnameseWord = false;
+            }
+        }
     }
 }

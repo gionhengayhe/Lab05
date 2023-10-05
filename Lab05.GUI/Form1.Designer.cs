@@ -35,6 +35,11 @@ namespace Lab05.GUI
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvStudent = new System.Windows.Forms.DataGridView();
+            this.clmMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmHoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDTB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmChuyenNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,11 +56,6 @@ namespace Lab05.GUI
             this.picAvatar = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.clmMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmHoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmKhoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDTB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmChuyenNganh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudent)).BeginInit();
             this.panel1.SuspendLayout();
@@ -112,13 +112,48 @@ namespace Lab05.GUI
             this.clmDTB,
             this.clmChuyenNganh});
             this.dgvStudent.Location = new System.Drawing.Point(383, 90);
-            this.dgvStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvStudent.Margin = new System.Windows.Forms.Padding(4);
             this.dgvStudent.Name = "dgvStudent";
             this.dgvStudent.RowHeadersWidth = 51;
             this.dgvStudent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudent.Size = new System.Drawing.Size(668, 447);
             this.dgvStudent.TabIndex = 1;
             this.dgvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudent_CellClick);
+            // 
+            // clmMSSV
+            // 
+            this.clmMSSV.HeaderText = "MSSV";
+            this.clmMSSV.MinimumWidth = 6;
+            this.clmMSSV.Name = "clmMSSV";
+            this.clmMSSV.Width = 80;
+            // 
+            // clmHoten
+            // 
+            this.clmHoten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmHoten.HeaderText = "Họ tên";
+            this.clmHoten.MinimumWidth = 6;
+            this.clmHoten.Name = "clmHoten";
+            // 
+            // clmKhoa
+            // 
+            this.clmKhoa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmKhoa.HeaderText = "Khoa";
+            this.clmKhoa.MinimumWidth = 6;
+            this.clmKhoa.Name = "clmKhoa";
+            // 
+            // clmDTB
+            // 
+            this.clmDTB.HeaderText = "Điểm TB";
+            this.clmDTB.MinimumWidth = 6;
+            this.clmDTB.Name = "clmDTB";
+            this.clmDTB.Width = 60;
+            // 
+            // clmChuyenNganh
+            // 
+            this.clmChuyenNganh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmChuyenNganh.HeaderText = "Chuyên ngành";
+            this.clmChuyenNganh.MinimumWidth = 6;
+            this.clmChuyenNganh.Name = "clmChuyenNganh";
             // 
             // label1
             // 
@@ -173,7 +208,7 @@ namespace Lab05.GUI
             // txtMaSV
             // 
             this.txtMaSV.Location = new System.Drawing.Point(115, 26);
-            this.txtMaSV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaSV.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Size = new System.Drawing.Size(213, 22);
             this.txtMaSV.TabIndex = 3;
@@ -182,15 +217,18 @@ namespace Lab05.GUI
             // txtHoten
             // 
             this.txtHoten.Location = new System.Drawing.Point(115, 79);
-            this.txtHoten.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHoten.Margin = new System.Windows.Forms.Padding(4);
             this.txtHoten.Name = "txtHoten";
             this.txtHoten.Size = new System.Drawing.Size(213, 22);
             this.txtHoten.TabIndex = 3;
+            this.txtHoten.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.txtHoten.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtHoten.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
             // 
             // txtDiem
             // 
             this.txtDiem.Location = new System.Drawing.Point(115, 192);
-            this.txtDiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiem.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiem.Name = "txtDiem";
             this.txtDiem.Size = new System.Drawing.Size(213, 22);
             this.txtDiem.TabIndex = 3;
@@ -201,7 +239,7 @@ namespace Lab05.GUI
             // 
             this.cmbKhoa.FormattingEnabled = true;
             this.cmbKhoa.Location = new System.Drawing.Point(115, 130);
-            this.cmbKhoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbKhoa.Margin = new System.Windows.Forms.Padding(4);
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(213, 24);
             this.cmbKhoa.TabIndex = 4;
@@ -222,7 +260,7 @@ namespace Lab05.GUI
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(16, 91);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(351, 446);
             this.panel1.TabIndex = 5;
@@ -230,7 +268,7 @@ namespace Lab05.GUI
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(203, 406);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 28);
             this.btnDelete.TabIndex = 7;
@@ -241,7 +279,7 @@ namespace Lab05.GUI
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(49, 406);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 7;
@@ -252,7 +290,7 @@ namespace Lab05.GUI
             // btnPic
             // 
             this.btnPic.Location = new System.Drawing.Point(311, 255);
-            this.btnPic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPic.Margin = new System.Windows.Forms.Padding(4);
             this.btnPic.Name = "btnPic";
             this.btnPic.Size = new System.Drawing.Size(36, 28);
             this.btnPic.TabIndex = 6;
@@ -263,7 +301,7 @@ namespace Lab05.GUI
             // picAvatar
             // 
             this.picAvatar.Location = new System.Drawing.Point(115, 255);
-            this.picAvatar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picAvatar.Margin = new System.Windows.Forms.Padding(4);
             this.picAvatar.Name = "picAvatar";
             this.picAvatar.Size = new System.Drawing.Size(188, 144);
             this.picAvatar.TabIndex = 5;
@@ -273,7 +311,7 @@ namespace Lab05.GUI
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(864, 63);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(166, 20);
             this.checkBox1.TabIndex = 6;
@@ -294,41 +332,6 @@ namespace Lab05.GUI
             this.label6.Text = "Quản lý sinh viên";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // clmMSSV
-            // 
-            this.clmMSSV.HeaderText = "MSSV";
-            this.clmMSSV.MinimumWidth = 6;
-            this.clmMSSV.Name = "clmMSSV";
-            this.clmMSSV.Width = 80;
-            // 
-            // clmHoten
-            // 
-            this.clmHoten.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmHoten.HeaderText = "Họ tên";
-            this.clmHoten.MinimumWidth = 6;
-            this.clmHoten.Name = "clmHoten";
-            // 
-            // clmKhoa
-            // 
-            this.clmKhoa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmKhoa.HeaderText = "Khoa";
-            this.clmKhoa.MinimumWidth = 6;
-            this.clmKhoa.Name = "clmKhoa";
-            // 
-            // clmDTB
-            // 
-            this.clmDTB.HeaderText = "Điểm TB";
-            this.clmDTB.MinimumWidth = 6;
-            this.clmDTB.Name = "clmDTB";
-            this.clmDTB.Width = 60;
-            // 
-            // clmChuyenNganh
-            // 
-            this.clmChuyenNganh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmChuyenNganh.HeaderText = "Chuyên ngành";
-            this.clmChuyenNganh.MinimumWidth = 6;
-            this.clmChuyenNganh.Name = "clmChuyenNganh";
-            // 
             // frmQLSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,7 +343,7 @@ namespace Lab05.GUI
             this.Controls.Add(this.dgvStudent);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmQLSV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sinh viên";
